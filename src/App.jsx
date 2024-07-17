@@ -23,7 +23,7 @@ function App() {
     const todo = {
       task: newTodo,
     }
-    const createdTodo = await todoServices.createTodo(todo)
+    await todoServices.createTodo(todo)
     // GET all the todos again from the new database, and setTodos
     setTodos(await todoServices.getTodos())
     setNewTodo('')
@@ -31,6 +31,15 @@ function App() {
 
   const handleDelete = async (todoId) => {
     await todoServices.deleteTodo(todoId)
+    setTodos(await todoServices.getTodos())
+  }
+
+  const handleCheckboxChange = async (todoObject) => {
+    const update = {
+      task: todoObject.task,
+      done: !todoObject.done,
+    }
+    const updatedTodo = await todoServices.updateTodo(todoObject.id, update)
     setTodos(await todoServices.getTodos())
   }
 
@@ -52,7 +61,12 @@ function App() {
       <div>
         <h1>TODOs</h1>
         {todos.map((eachTodo) => (
-          <Todo todo={eachTodo} handleDelete={handleDelete} key={eachTodo.id} />
+          <Todo
+            todo={eachTodo}
+            handleDelete={handleDelete}
+            handleCheckboxChange={handleCheckboxChange}
+            key={eachTodo.id}
+          />
         ))}
         <TodoForm
           handleTodoCreation={handleTodoCreation}
