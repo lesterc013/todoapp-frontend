@@ -28,6 +28,10 @@ function App() {
     setNewTodo('')
   }
 
+  const handleDelete = async (todoId) => {
+    console.log(todoId)
+  }
+
   // Conditional Render -- todos has nothing, just render the TodoForm; else map todos and TodoForm
 
   if (!todos) {
@@ -46,7 +50,7 @@ function App() {
       <div>
         <h1>TODOs</h1>
         {todos.map((eachTodo) => (
-          <Todo todo={eachTodo} key={eachTodo.id} />
+          <Todo todo={eachTodo} handleDelete={handleDelete} key={eachTodo.id} />
         ))}
         <TodoForm
           handleTodoCreation={handleTodoCreation}
