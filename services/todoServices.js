@@ -16,8 +16,14 @@ const deleteTodo = async (todoId) => {
   return response.data
 }
 
+const updateTodo = async (todoId, update) => {
+  const response = await axios.put(`${baseUrl}/${todoId}`, update)
+  return response.data
+}
+
 export default {
   getTodos,
   createTodo,
   deleteTodo,
+  updateTodo,
 }
