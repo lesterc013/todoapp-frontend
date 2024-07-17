@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import todoServices from '../services/todoServices'
 import TodoForm from './components/TodoForm'
 import Todo from './components/Todo'
+import axios from 'axios'
 
 function App() {
   const [todos, setTodos] = useState(null)
@@ -29,7 +30,8 @@ function App() {
   }
 
   const handleDelete = async (todoId) => {
-    console.log(todoId)
+    await todoServices.deleteTodo(todoId)
+    setTodos(await todoServices.getTodos())
   }
 
   // Conditional Render -- todos has nothing, just render the TodoForm; else map todos and TodoForm
