@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import todoServices from '../services/todoServices'
 import TodoForm from './components/TodoForm'
 import Todo from './components/Todo'
-import axios from 'axios'
 
 function App() {
   const [todos, setTodos] = useState(null)
@@ -34,11 +33,7 @@ function App() {
     setTodos(await todoServices.getTodos())
   }
 
-  const handleCheckboxChange = async (todoObject) => {
-    const update = {
-      task: todoObject.task,
-      done: !todoObject.done,
-    }
+  const handleTodoUpdate = async (todoObject, update) => {
     const updatedTodo = await todoServices.updateTodo(todoObject.id, update)
     setTodos(await todoServices.getTodos())
   }
@@ -64,7 +59,7 @@ function App() {
           <Todo
             todo={eachTodo}
             handleDelete={handleDelete}
-            handleCheckboxChange={handleCheckboxChange}
+            handleTodoUpdate={handleTodoUpdate}
             key={eachTodo.id}
           />
         ))}
