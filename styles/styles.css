@@ -18,6 +18,11 @@ form,
   border-right: 0;
 }
 
+.todoInput:focus,
+.formInput {
+  outline: none;
+}
+
 .todoStrikethrough {
   text-decoration: line-through;
   color: rgb(151, 151, 151);
