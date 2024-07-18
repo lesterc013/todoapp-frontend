@@ -29,8 +29,8 @@ const Todo = ({ todo, handleDelete, handleTodoUpdate }) => {
   }
 
   return (
-    <Container className='container'>
-      <Button className='btn updateBtn' onClick={submitTodoDoneUpdate}>
+    <Container className='todoContainer'>
+      <Button className='updateBtn' onClick={submitTodoDoneUpdate}>
         ✓
       </Button>
       {todo.done ? (
@@ -55,7 +55,7 @@ const Todo = ({ todo, handleDelete, handleTodoUpdate }) => {
         />
       )}
       <Button
-        className='btn delBtn'
+        className='delBtn'
         size='sm'
         onClick={() => handleDelete(todo.id)}
       >
