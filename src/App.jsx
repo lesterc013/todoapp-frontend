@@ -3,7 +3,9 @@ import todoServices from '../services/todoServices'
 import TodoForm from './components/TodoForm'
 import Todo from './components/Todo'
 import Container from 'react-bootstrap/Container'
-import '../styles/appStyles.css'
+import { Bounce, ToastContainer, toast } from 'react-toastify'
+import '../styles/styles.css'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   const [todos, setTodos] = useState(null)
@@ -19,15 +21,33 @@ function App() {
     fetchTodos()
   }, [])
 
+  const showToastMessage = (error) => {
+    toast.error(error.response.data.error, {
+      position: 'top-right',
+      autoClose: 3000,
+      pauseOnHover: false,
+      closeOnClick: true,
+      closeButton: false,
+      hideProgressBar: true,
+      theme: 'colored',
+      transition: Bounce,
+    })
+  }
+
   const handleTodoCreation = async (event) => {
     event.preventDefault()
     const todo = {
       task: newTodo,
     }
-    await todoServices.createTodo(todo)
-    // GET all the todos again from the new database, and setTodos
-    setTodos(await todoServices.getTodos())
-    setNewTodo('')
+    try {
+      await todoServices.createTodo(todo)
+      // GET all the todos again from the new database, and setTodos
+      setTodos(await todoServices.getTodos())
+      setNewTodo('')
+    } catch (error) {
+      showToastMessage(error)
+      setNewTodo('')
+    }
   }
 
   const handleDelete = async (todoId) => {
@@ -66,6 +86,7 @@ function App() {
             todo={eachTodo}
             handleDelete={handleDelete}
             handleTodoUpdate={handleTodoUpdate}
+            showToastMessage={showToastMessage}
             key={eachTodo.id}
           />
         ))}
@@ -74,6 +95,7 @@ function App() {
           inputValue={newTodo}
           setNewTodo={setNewTodo}
         />
+        <ToastContainer />
       </div>
     )
   }
