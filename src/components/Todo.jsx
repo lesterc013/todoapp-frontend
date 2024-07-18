@@ -33,15 +33,27 @@ const Todo = ({ todo, handleDelete, handleTodoUpdate }) => {
       <Button className='btn updateBtn' onClick={submitTodoDoneUpdate}>
         ✓
       </Button>
-      <input
-        className='todoInput'
-        type='text'
-        name='todoInDb'
-        value={todoTaskUpdate}
-        onChange={({ target }) => setTodoTaskUpdate(target.value)}
-        onKeyDown={blurInputOnEnterOrEscape}
-        onBlur={submitTodoTaskUpdate}
-      />
+      {todo.done ? (
+        <input
+          className={`todoInput todoStrikethrough`}
+          type='text'
+          name='todoInDb'
+          value={todoTaskUpdate}
+          onChange={({ target }) => setTodoTaskUpdate(target.value)}
+          onKeyDown={blurInputOnEnterOrEscape}
+          onBlur={submitTodoTaskUpdate}
+        />
+      ) : (
+        <input
+          className={`todoInput`}
+          type='text'
+          name='todoInDb'
+          value={todoTaskUpdate}
+          onChange={({ target }) => setTodoTaskUpdate(target.value)}
+          onKeyDown={blurInputOnEnterOrEscape}
+          onBlur={submitTodoTaskUpdate}
+        />
+      )}
       <Button
         className='btn delBtn'
         size='sm'
