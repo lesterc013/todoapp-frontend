@@ -12,6 +12,7 @@ const TodoForm = ({ handleTodoCreation, inputValue, setNewTodo }) => {
           name='todo'
           value={inputValue}
           onChange={({ target }) => setNewTodo(target.value)}
+          autoComplete='off'
         />
         <Button className='addBtn' type='submit' name='add'>
           add

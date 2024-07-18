@@ -42,6 +42,7 @@ const Todo = ({ todo, handleDelete, handleTodoUpdate }) => {
           onChange={({ target }) => setTodoTaskUpdate(target.value)}
           onKeyDown={blurInputOnEnterOrEscape}
           onBlur={submitTodoTaskUpdate}
+          autoComplete='off'
         />
       ) : (
         <input
@@ -52,6 +53,7 @@ const Todo = ({ todo, handleDelete, handleTodoUpdate }) => {
           onChange={({ target }) => setTodoTaskUpdate(target.value)}
           onKeyDown={blurInputOnEnterOrEscape}
           onBlur={submitTodoTaskUpdate}
+          autoComplete='off'
         />
       )}
       <Button
