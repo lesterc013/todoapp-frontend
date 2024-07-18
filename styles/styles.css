@@ -1,0 +1,102 @@
+/* main Styles */
+body,
+.todoInput,
+.todoContainer,
+form,
+.formInput,
+.formContainer {
+  background-color: #3d3e3f !important;
+  color: rgb(236, 235, 235) !important;
+}
+
+/* Todo Styles */
+.todoInput {
+  width: 75%;
+  align-self: center;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
+
+.todoStrikethrough {
+  text-decoration: line-through;
+  color: rgb(151, 151, 151);
+}
+
+.todoContainer {
+  display: flex;
+  justify-content: space-around;
+  margin: 3%;
+  max-width: 720px !important;
+}
+
+@media screen and (min-width: 540px) {
+  .todoContainer {
+    justify-content: space-evenly;
+    margin: 16.2px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .todoContainer {
+    justify-content: space-evenly;
+  }
+}
+
+.updateBtn {
+  background-color: rgba(255, 255, 255, 0) !important;
+  border-radius: 60% !important;
+  border-color: rgba(255, 255, 255, 0) !important;
+}
+
+.delBtn {
+  background-color: rgba(255, 255, 255, 0) !important;
+  border-radius: 25% !important;
+  border-color: rgba(255, 255, 255, 0) !important;
+}
+
+/* TodoForm Styles */
+form {
+  width: 100%;
+  margin-top: 5%;
+}
+
+@media screen and (min-width: 540px) {
+  form {
+    margin-top: 27px;
+  }
+}
+
+.formInput {
+  width: 80%;
+  align-self: center;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 720px !important;
+}
+
+.addBtn {
+  background-color: rgba(255, 255, 255, 0) !important;
+  border-color: rgba(255, 255, 255, 0) !important;
+}
+
+/* App styles */
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 7.5%;
+  margin-bottom: 5%;
+}
+
+@media screen and (min-width: 540px) {
+  .titleContainer {
+    margin-top: 40.5px;
+    margin-bottom: 27px;
+  }
+}
