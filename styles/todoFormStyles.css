@@ -3,6 +3,12 @@ form {
   margin-top: 5%;
 }
 
+@media screen and (min-width: 540px) {
+  form {
+    margin-top: 27px;
+  }
+}
+
 .formInput {
   width: 80%;
   align-self: center;
