@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import todoServices from '../services/todoServices'
 import TodoForm from './components/TodoForm'
 import Todo from './components/Todo'
+import Container from 'react-bootstrap/Container'
+import '../styles/appStyles.css'
 
 function App() {
   const [todos, setTodos] = useState(null)
@@ -43,7 +45,9 @@ function App() {
   if (!todos) {
     return (
       <div>
-        <h1>TODOs</h1>
+        <Container className='titleContainer'>
+          <h1>TODOs</h1>
+        </Container>
         <TodoForm
           handleTodoCreation={handleTodoCreation}
           inputValue={newTodo}
@@ -54,7 +58,9 @@ function App() {
   } else {
     return (
       <div>
-        <h1>TODOs</h1>
+        <Container className='titleContainer'>
+          <h1>TODOs</h1>
+        </Container>
         {todos.map((eachTodo) => (
           <Todo
             todo={eachTodo}
