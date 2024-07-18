@@ -1,0 +1,29 @@
+.todoInput {
+  width: 75%;
+  align-self: center;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 50%;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  margin: 1%;
+}
+
+.btn {
+  border-color: rgba(255, 255, 255, 0) !important;
+}
+
+.updateBtn {
+  background-color: rgba(255, 255, 255, 0) !important;
+  border-radius: 60% !important;
+  color: black !important;
+}
+
+.delBtn {
+  background-color: rgb(218, 92, 92) !important;
+  border-radius: 25% !important;
+}
